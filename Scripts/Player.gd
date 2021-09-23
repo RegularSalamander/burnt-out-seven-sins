@@ -15,7 +15,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	var motion = Vector2(int(input[3])-int(input[2]), int(input[1])-int(input[0]))
 	if motion.x > 0:
 		lastDir = 3
@@ -27,7 +27,7 @@ func _physics_process(delta):
 		lastDir = 0
 	motion *= moveSpeed
 	# move and slide uses delta internally for some fuckin reason
-	move_and_slide(motion)
+	var _slidevel = move_and_slide(motion)
 
 func _input(event):
 	# event.is_action works for wasd or arrows
