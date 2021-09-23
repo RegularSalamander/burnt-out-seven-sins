@@ -37,12 +37,20 @@ func _process(delta):
 
 func do_instruction(instruction):
 	if instruction == "right":
-		velocity = Vector2(20, 0)
+		velocity = Vector2(100, 0)
 	elif instruction == "left":
-		velocity = Vector2(-20, 0)
+		velocity = Vector2(-100, 0)
 	elif instruction == "shoot":
-		var new_bullet = bullet_scn.instance()
-		new_bullet.position = position
-		new_bullet.velocity = Vector2(0, 100)
-		get_parent().add_child(new_bullet)
+		var new_bullet_1 = bullet_scn.instance()
+		new_bullet_1.position = position
+		new_bullet_1.velocity = Vector2(0, 150)
+		get_parent().add_child(new_bullet_1)
+		var new_bullet_2 = bullet_scn.instance()
+		new_bullet_2.position = position
+		new_bullet_2.velocity = Vector2(100, 150)
+		get_parent().add_child(new_bullet_2)
+		var new_bullet_3 = bullet_scn.instance()
+		new_bullet_3.position = position
+		new_bullet_3.velocity = Vector2(-100, 150)
+		get_parent().add_child(new_bullet_3)
 	pass
