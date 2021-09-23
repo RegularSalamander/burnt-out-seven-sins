@@ -15,6 +15,3 @@ texture = ExtResource( 2 )
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
 position = Vector2( 1.16798, 9.17702 )
 shape = SubResource( 1 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true

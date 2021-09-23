@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=2]
 
 [node name="Node2D" type="Node2D"]
 
@@ -8,3 +9,7 @@
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PoolVector2Array( -183.793, 39.8171, 211.47, 38.2297, 224.169, 119.187, -277.45, 141.411, -240.94, -64.9514 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+script = ExtResource( 2 )
