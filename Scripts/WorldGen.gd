@@ -12,8 +12,8 @@ func _ready():
 # set the y the player is at
 func set_height(player_height):
 	print(player_height)
-	#generate 200 pixels ahead of the player
-	while player_height - 200 < lastGenerated:
+	#generate 300 pixels ahead of the player
+	while player_height - 300 < lastGenerated:
 		# placeholder stairs are 144 pixels tall
 		lastGenerated -= 144
 		generate(lastGenerated)
