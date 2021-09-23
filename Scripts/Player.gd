@@ -1,18 +1,13 @@
-extends Sprite
+extends KinematicBody2D
 
+# speed in pixels per second
+export (int) var moveSpeed = 100
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var yvel = 0
-var grounded = true
-
-var leftvel = 0
-var rightvel = 0
-
-var movevel = 800
-var jumpvel = 1000
-var grav = 2000
+# the directional buttons the player is pressing
+var input = [0, 0, 0, 0]
+# keeps track of the direction the player is facing
+# (isn't useful yet, but we'll need it when the player has actual animations)
+var lastDir = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,27 +15,36 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	position.x += (leftvel + rightvel) * delta
-	if position.y > 0:
-		position.y = 0
-		grounded = true
-	elif !grounded:
-		yvel += grav * delta
-		position.y += yvel * delta
-	pass
+func _physics_process(delta):
+	var motion = Vector2(int(input[3])-int(input[2]), int(input[1])-int(input[0]))
+	if motion.x > 0:
+		lastDir = 3
+	elif motion.x < 0:
+		lastDir = 1
+	elif motion.y < 0:
+		lastDir = 2
+	elif motion.y > 0:
+		lastDir = 0
+	motion *= moveSpeed
+	# move and slide uses delta internally for some fuckin reason
+	move_and_slide(motion)
 
-# TODO: check if there's a better way to do this
 func _input(event):
-	if event.is_action_pressed("jump") && grounded:
-		yvel = -jumpvel
-		grounded = false
-	if event.is_action_pressed("left"):
-		leftvel = -movevel
-	if event.is_action_released("left"):
-		leftvel = 0
-	if event.is_action_pressed("right"):
-		rightvel = jumpvel
-	if event.is_action_released("right"):
-		rightvel = 0
+	# event.is_action works for wasd or arrows
+	if event.is_action("ui_up") and not input[0]:
+		input[0] = true
+	if event.is_action_released("ui_up"):
+		input[0] = false
+	if event.is_action_pressed("ui_down"):
+		input[1] = true
+	if event.is_action_released("ui_down"):
+		input[1] = false
+	if event.is_action_pressed("ui_left"):
+		input[2] = true
+	if event.is_action_released("ui_left"):
+		input[2] = false
+	if event.is_action_pressed("ui_right"):
+		input[3] = true
+	if event.is_action_released("ui_right"):
+		input[3] = false
 	pass
