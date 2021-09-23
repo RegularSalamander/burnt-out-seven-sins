@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # speed in pixels per second
-export (int) var moveSpeed = 100
+export (int) var moveSpeed = 150
 
 # the directional buttons the player is pressing
 var input = [0, 0, 0, 0]
