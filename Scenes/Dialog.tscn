@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Dialog.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+initDialog = "res://Dialog/test.json"
+
+[node name="TextArea" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -128.0
+margin_top = 400.0
+margin_right = 128.0
+margin_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="TextArea"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogText" type="RichTextLabel" parent="TextArea"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+bbcode_enabled = true
+bbcode_text = "[i]Text[/i] is [color=red]good[/color], REALLY [color=red]GOOD[/color], it's amazing it's just the best"
+text = "Text is good, REALLY GOOD, it's amazing it's just the best"
+__meta__ = {
+"_edit_use_anchors_": false
+}

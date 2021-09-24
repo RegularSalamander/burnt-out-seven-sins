@@ -23,6 +23,10 @@ window/stretch/aspect="keep_height"
 
 singletons=[  ]
 
+[global]
+
+camera=false
+
 [input]
 
 ui_left={
