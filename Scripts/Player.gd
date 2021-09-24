@@ -39,6 +39,8 @@ func _physics_process(delta):
 		reload_time = 0.5
 	
 	velocity *= moveSpeed
+	if shooting:
+		velocity *= 0.5
 	# move and slide uses delta internally for some fuckin reason
 	move_and_collide(velocity*delta)
 
