@@ -45,3 +45,13 @@ text = "Text is good, REALLY GOOD, it's amazing it's just the best"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="TextArea"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Enter"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
