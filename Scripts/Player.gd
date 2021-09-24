@@ -13,12 +13,16 @@ var shooting = false
 var lastDir = 0
 var reload_time = 0
 
+var i_frames = 0
+var health = 3
+
 func _ready():
 	bullet_scn = load("res://Scenes/PlayerBullet.tscn")
 
 
 func _physics_process(delta):
 	reload_time -= delta
+	i_frames -= delta
 	
 	var velocity = Vector2(int(input[3])-int(input[2]), int(input[1])-int(input[0]))
 	if velocity.x > 0:
@@ -68,3 +72,13 @@ func _input(event):
 	if event.is_action_released("jump"):
 		shooting = false
 	pass
+
+
+func _on_Hurtbox_area_entered(area):
+	# this area only collides with things that hurt the player
+	# so checking the object doesn't matter
+	# this will only be called when the player collides with enemies or enemy bullets
+	if i_frames <= 0:
+		health -= 1
+		i_frames = 0.5 #half a second of invincibility
+	print(health)
