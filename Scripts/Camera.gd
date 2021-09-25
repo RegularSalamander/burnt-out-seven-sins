@@ -7,5 +7,5 @@ func _ready():
 
 func _process(_delta):
 	if player.position.y < position.y:
-		position = Vector2(0, player.position.y)
+		position = Vector2(0, floor(player.position.y))
 	pass
