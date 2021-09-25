@@ -52,26 +52,26 @@ func do_instruction(instruction):
 	if instruction == "stop":
 		velocity = Vector2(0, 0)
 	elif instruction == "right":
-		velocity = Vector2(100, 0)
+		velocity = Vector2(30, 0)
 	elif instruction == "left":
-		velocity = Vector2(-100, 0)
+		velocity = Vector2(-30, 0)
 	elif instruction == "shoot":
 		var new_bullet = bullet_scn.instance()
 		new_bullet.position = position
-		new_bullet.velocity = Vector2(0, 150)
+		new_bullet.velocity = Vector2(0, 50)
 		get_parent().add_child(new_bullet)
 	elif instruction == "shoot three":
 		var new_bullet_1 = bullet_scn.instance()
 		new_bullet_1.position = position
-		new_bullet_1.velocity = Vector2(0, 150)
+		new_bullet_1.velocity = Vector2(0, 50)
 		get_parent().add_child(new_bullet_1)
 		var new_bullet_2 = bullet_scn.instance()
 		new_bullet_2.position = position
-		new_bullet_2.velocity = Vector2(100, 150)
+		new_bullet_2.velocity = Vector2(40, 50)
 		get_parent().add_child(new_bullet_2)
 		var new_bullet_3 = bullet_scn.instance()
 		new_bullet_3.position = position
-		new_bullet_3.velocity = Vector2(-100, 150)
+		new_bullet_3.velocity = Vector2(-40, 50)
 		get_parent().add_child(new_bullet_3)
 	elif instruction == "shoot circle":
 		for i in range(8):
@@ -79,7 +79,7 @@ func do_instruction(instruction):
 			var theta = (float(i)/8) * 2*PI
 			var new_bullet = bullet_scn.instance()
 			new_bullet.position = position
-			new_bullet.velocity = Vector2(cos(theta)*150, sin(theta)*150)
+			new_bullet.velocity = Vector2(cos(theta)*50, sin(theta)*50)
 			get_parent().add_child(new_bullet)
 	elif instruction == "shoot circle offset":
 		for i in range(8):
@@ -87,7 +87,7 @@ func do_instruction(instruction):
 			var theta = (float(i)/8) * 2*PI + PI/8
 			var new_bullet = bullet_scn.instance()
 			new_bullet.position = position
-			new_bullet.velocity = Vector2(cos(theta)*150, sin(theta)*150)
+			new_bullet.velocity = Vector2(cos(theta)*50, sin(theta)*50)
 			get_parent().add_child(new_bullet)
 	pass
 

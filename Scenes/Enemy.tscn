@@ -4,6 +4,7 @@
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.38253, 4.42005 )
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
@@ -18,7 +19,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2( 0.595276, 8.73071 )
+position = Vector2( -0.642166, 5.54873 )
 shape = SubResource( 1 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
