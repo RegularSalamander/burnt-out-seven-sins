@@ -39,7 +39,8 @@ func generate(height):
 	# should be controlled by difficulty instead of hard coded later
 	if height - last_enemy_height < -200:
 		var new_enemy = enemy_scns[0].instance() #todo: make random and determined by difficulty
-		new_enemy.position = Vector2(-50, height)
+		new_enemy.load_enemy(1)
+		new_enemy.position.y = height
 		get_parent().add_child(new_enemy)
 		last_enemy_height = height
 	

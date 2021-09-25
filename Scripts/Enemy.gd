@@ -5,32 +5,26 @@ var bullet_scn
 var velocity = Vector2(0, 0)
 
 # does the instruction, then waits the time (in seconds)
-var instructions = [
-	"random", 0.3,
-		"shoot target", 0.1,
-		"shoot target", 0.1,
-		"shoot target", 0.1,
-		"shoot target", 0.1,
-	"stop", 0.1,
-		"shoot circle", 0.5,
-		"shoot circle offset", 0.5,
-		"shoot circle", 0.5,
-	"random", 0.3,
-		"shoot target", 0.1,
-		"shoot target", 0.1,
-		"shoot target", 0.1,
-		"shoot target", 0.1,
-	"stop", 0.1,
-		"shoot circle", 0.5,
-		"shoot circle offset", 0.5,
-		"shoot circle", 0.5,
-]
+var instructions = []
 var instruction_time_left = 0
 var instruction_idx = 0
 
 var health = 1
 
 var rng = RandomNumberGenerator.new()
+
+func load_enemy(enemy_idx):
+	var handle : File = File.new()
+	var _o = handle.open("enemies.json", File.READ)
+	var fileText = handle.get_as_text()
+	handle.close()
+	var enemies = parse_json(fileText)
+	var stats = enemies["enemies"][enemy_idx]
+	instructions = stats["instructions"]
+	health = stats["health"]
+	# position should go from -64 to 64
+	rng.randomize()
+	position.x = rng.randf_range(stats["min_x_position"], stats["max_x_position"])
 
 func _ready():
 	rng.randomize()

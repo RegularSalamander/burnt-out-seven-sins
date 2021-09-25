@@ -1,0 +1,44 @@
+{
+    "enemies": [
+        {
+            "difficulty": 1,
+            "health": 1,
+            "min_x_position": -64.0,
+            "max_x_position": 4.0,
+            "instructions": [
+                "right", 0,
+                    "shoot", 1,
+                    "shoot", 1,
+                "left", 0,
+                    "shoot", 1,
+                    "shoot", 1
+            ]
+        },
+        {
+            "difficulty": 5,
+            "health": 3,
+            "min_x_position": -64.0,
+            "max_x_position": 4.0,
+            "instructions": [
+                "random", 0.3,
+                    "shoot target", 0.1,
+                    "shoot target", 0.1,
+                    "shoot target", 0.1,
+                    "shoot target", 0.1,
+                "stop", 0.1,
+                    "shoot circle", 0.5,
+                    "shoot circle offset", 0.5,
+                    "shoot circle", 0.5,
+                "random", 0.3,
+                    "shoot target", 0.1,
+                    "shoot target", 0.1,
+                    "shoot target", 0.1,
+                    "shoot target", 0.1,
+                "stop", 0.1,
+                    "shoot circle", 0.5,
+                    "shoot circle offset", 0.5,
+                    "shoot circle", 0.5
+            ]
+        }
+    ]
+}
