@@ -15,6 +15,17 @@
             ]
         },
         {
+            "difficulty": 2,
+            "health": 1,
+            "min_x_position": -64.0,
+            "max_x_position": 64.0,
+            "instructions": [
+                "random", 0,
+                    "shoot target", 1,
+                    "shoot target", 1
+            ]
+        },
+        {
             "difficulty": 5,
             "health": 3,
             "min_x_position": -64.0,

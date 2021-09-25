@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Art/placeholder_player.png" type="Texture" id=2]
+[ext_resource path="res://Art/player.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.09331, 4.63867 )
+extents = Vector2( 2.45652, 4.63867 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 5.42425, 2.62074 )
+extents = Vector2( 2.59761, 2.62074 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 16

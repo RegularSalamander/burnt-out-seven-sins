@@ -27,7 +27,6 @@ func load_enemy(enemy_idx):
 	position.x = rng.randf_range(stats["min_x_position"], stats["max_x_position"])
 
 func _ready():
-	rng.randomize()
 	bullet_scn = load("res://Scenes/EnemyBullet.tscn")
 
 func _physics_process(delta):
