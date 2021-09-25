@@ -8,13 +8,20 @@ var stair_scn
 var enemy_scns = []
 var difficulty = 0
 
+var screen_border
+
 func _ready():
 	# we can make multiple of these scenes and switch between them randomly
 	stair_scn = load("res://Scenes/stairs.tscn")
 	enemy_scns.append(load("res://Scenes/Enemy.tscn"))
+	screen_border = $"Screen Border"
 
 # set the y the player is at
 func set_height(player_height):
+	#screen border 300 pixels under player
+	if player_height < screen_border.position.y - 300:
+		screen_border.position = Vector2(0, player_height + 300)
+	
 	var did_move = false
 	#generate 300 pixels ahead of the player
 	while player_height - 300 < last_height_generated:

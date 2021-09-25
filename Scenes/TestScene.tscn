@@ -12,6 +12,7 @@ script = ExtResource( 3 )
 [node name="WorldGen" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0.529724, -26.4866 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

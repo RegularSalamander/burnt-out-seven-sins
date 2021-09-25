@@ -38,7 +38,7 @@ func _process(delta):
 		instruction_idx += 2
 		instruction_idx %= instructions.size()
 	
-	move_and_collide(velocity * delta)
+	move_and_slide(velocity)
 
 func do_instruction(instruction):
 	if instruction == "right":
