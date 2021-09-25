@@ -6,20 +6,20 @@ var velocity = Vector2(0, 0)
 
 # does the instruction, then waits the time (in seconds)
 var instructions = [
-	"right", 0.3,
-		"shoot", 0.3,
-		"shoot", 0.3,
-		"shoot", 0.3,
-		"shoot", 0.3,
+	"random", 0.3,
+		"shoot target", 0.1,
+		"shoot target", 0.1,
+		"shoot target", 0.1,
+		"shoot target", 0.1,
 	"stop", 0.1,
 		"shoot circle", 0.5,
 		"shoot circle offset", 0.5,
 		"shoot circle", 0.5,
-	"left", 0.3,
-		"shoot", 0.3,
-		"shoot", 0.3,
-		"shoot", 0.3,
-		"shoot", 0.3,
+	"random", 0.3,
+		"shoot target", 0.1,
+		"shoot target", 0.1,
+		"shoot target", 0.1,
+		"shoot target", 0.1,
 	"stop", 0.1,
 		"shoot circle", 0.5,
 		"shoot circle offset", 0.5,
@@ -30,10 +30,13 @@ var instruction_idx = 0
 
 var health = 1
 
+var rng = RandomNumberGenerator.new()
+
 func _ready():
+	rng.randomize()
 	bullet_scn = load("res://Scenes/EnemyBullet.tscn")
 
-func _process(delta):
+func _physics_process(delta):
 	if health <= 0:
 		queue_free()
 	
@@ -55,6 +58,9 @@ func do_instruction(instruction):
 		velocity = Vector2(30, 0)
 	elif instruction == "left":
 		velocity = Vector2(-30, 0)
+	elif instruction == "random":
+		var theta = rng.randf_range(0, 2*PI)
+		velocity = Vector2(cos(theta)*30, sin(theta)*30)
 	elif instruction == "shoot":
 		var new_bullet = bullet_scn.instance()
 		new_bullet.position = position
@@ -89,6 +95,13 @@ func do_instruction(instruction):
 			new_bullet.position = position
 			new_bullet.velocity = Vector2(cos(theta)*50, sin(theta)*50)
 			get_parent().add_child(new_bullet)
+	elif instruction == "shoot target":
+		var new_bullet = bullet_scn.instance()
+		new_bullet.position = position
+		var player_pos = get_parent().get_node("Player").position
+		var theta = atan2(player_pos.y - position.y, player_pos.x - position.x)
+		new_bullet.velocity = Vector2(cos(theta)*50, sin(theta)*50)
+		get_parent().add_child(new_bullet)
 	pass
 
 
