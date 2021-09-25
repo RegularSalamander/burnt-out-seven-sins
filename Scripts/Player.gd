@@ -75,6 +75,8 @@ func _input(event):
 
 
 func _on_Hurtbox_area_entered(area):
+	#delete the bullet that hit
+	area.get_parent().queue_free()
 	# this area only collides with things that hurt the player
 	# so checking the object doesn't matter
 	# this will only be called when the player collides with enemies or enemy bullets
@@ -82,4 +84,3 @@ func _on_Hurtbox_area_entered(area):
 		health -= 1
 		i_frames = 0.5 #half a second of invincibility
 		get_parent().time_since_player_damaged = 0 #for sloth sin
-	print(health)

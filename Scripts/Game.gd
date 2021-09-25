@@ -10,7 +10,7 @@ var sins = [
 	0, #pride
 	0, #gluttony
 	0, #sloth
-	0,
+	0, #greed
 	0,
 	0
 ]
@@ -33,8 +33,6 @@ func _process(delta):
 	if time_since_player_damaged > 10: #20 seconds of not being damaged
 		sins[1] += 1 #pride sin
 		time_since_player_damaged -= 10
-	
-	print(sins)
 	
 	#returns true if the max height generated moved up
 	if world_gen.set_height(player.position.y):
