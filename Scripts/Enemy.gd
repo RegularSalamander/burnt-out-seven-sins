@@ -62,7 +62,8 @@ func do_instruction(instruction):
 
 
 func _on_Hurtbox_area_entered(area):
-	# this area only collides with things that hurt the player
+	# this area only collides with things that hurt the enemy
 	# so checking the object doesn't matter
-	# this will only be called when the player collides with enemies or enemy bullets
+	# this will only be called when the enemy collides player bullets
 	health -= 1
+	get_parent().sins[0] += 1 #wrath sin
