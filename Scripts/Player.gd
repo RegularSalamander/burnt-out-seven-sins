@@ -19,7 +19,6 @@ var health = 3
 func _ready():
 	bullet_scn = load("res://Scenes/PlayerBullet.tscn")
 
-
 func _physics_process(delta):
 	reload_time -= delta
 	i_frames -= delta
@@ -37,7 +36,8 @@ func _physics_process(delta):
 	if shooting and reload_time <= 0:
 		var new_bullet = bullet_scn.instance()
 		new_bullet.position = position
-		new_bullet.velocity = Vector2(0, -200)
+		new_bullet.velocity = Vector2(0, -300)
+		new_bullet.time_to_live = 2
 		get_parent().add_child(new_bullet)
 		# half second reload
 		reload_time = 0.5
