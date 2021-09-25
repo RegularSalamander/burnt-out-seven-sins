@@ -25,6 +25,7 @@ script = ExtResource( 4 )
 [node name="CanvasLayer" type="CanvasLayer" parent="Node2D"]
 
 [node name="Control" parent="Node2D/CanvasLayer" instance=ExtResource( 5 )]
+margin_top = -287.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 0.5, 0 )
