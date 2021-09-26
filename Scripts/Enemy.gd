@@ -32,7 +32,8 @@ func _ready():
 func _physics_process(delta):
 	if health <= 0:
 		queue_free()
-	
+	if position.y - get_parent().get_node("Player").position.y > 150:
+		queue_free()
 	instruction_time_left -= delta
 	
 	# while so it can do multiple instructions in one frame

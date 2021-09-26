@@ -6,6 +6,8 @@ var dialogActive : bool
 
 var textNode : RichTextLabel
 
+var textFreq = 5
+
 export (String, FILE) var initDialog : String = ""
 
 func _ready():
@@ -16,7 +18,7 @@ func _ready():
 	pass
 
 func dialogClose():
-	Engine.time_scale = 1
+	# Engine.time_scale = 1
 	visible = false
 	dialogActive = false
 	pass
@@ -40,7 +42,7 @@ func start(file : String):
 	startSpec(parse_json(fileText))
 
 func startSpec(diaSpec):
-	Engine.time_scale = 0
+	# Engine.time_scale = 0
 	visible = true
 	dialogActive = true
 	match typeof(diaSpec):
