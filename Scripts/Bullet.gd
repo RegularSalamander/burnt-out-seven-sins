@@ -9,7 +9,7 @@ func _physics_process(delta):
 	if time_to_live <= 0:
 		#if player's bullet, add to the greed sin
 		if name.begins_with("Player"):
-			get_parent().sins[4] += 1
+			get_parent().sins[1] += 0.3 #greed up 
 		queue_free()
 	#collision is handled by the player and enemies, not bullets
 	move_and_collide(velocity*delta)
