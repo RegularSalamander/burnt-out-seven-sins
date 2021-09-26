@@ -36,6 +36,6 @@ rect_pivot_offset = Vector2( 0.5, 0 )
 motion_scale = Vector2( 0.1, 0.1 )
 
 [node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( -0.840917, -316.177 )
-scale = Vector2( 0.893511, 1 )
+position = Vector2( 4.42297, -311.971 )
+scale = Vector2( 1.62114, 1.81435 )
 texture = ExtResource( 6 )
