@@ -56,7 +56,6 @@ func generate(height):
 				new_enemy.position.y = height
 				get_parent().add_child(new_enemy)
 				last_enemy_height = height
-				print(enemy_data["enemies"][enemy_idx]["difficulty"])
 				budget -= enemy_data["enemies"][enemy_idx]["difficulty"]
 		
 	

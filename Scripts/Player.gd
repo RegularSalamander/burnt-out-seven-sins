@@ -84,3 +84,5 @@ func _on_Hurtbox_area_entered(area):
 		health -= 1
 		i_frames = 0.5 #half a second of invincibility
 		get_parent().time_since_player_damaged = 0 #for sloth sin
+	
+	print(health)

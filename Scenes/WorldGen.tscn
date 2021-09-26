@@ -12,5 +12,5 @@ script = ExtResource( 1 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Screen Border"]
-position = Vector2( 0, 9.24986 )
+position = Vector2( 0, 109.737 )
 shape = SubResource( 1 )
