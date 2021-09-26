@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Dialog.gd" type="Script" id=1]
+[ext_resource path="res://fancySalamander (1).ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -39,8 +46,9 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[i]Text[/i] is [color=red]good[/color], REALLY [color=red]GOOD[/color], it's amazing it's just the best"
+bbcode_text = "Text is [color=red]good[/color], REALLY [color=red]GOOD[/color], it's amazing it's just the best"
 text = "Text is good, REALLY GOOD, it's amazing it's just the best"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -49,6 +57,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="TextArea"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
 text = "Enter"
 align = 2
 valign = 2
