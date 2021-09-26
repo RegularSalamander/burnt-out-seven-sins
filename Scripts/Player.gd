@@ -5,6 +5,9 @@ export (int) var moveSpeed = 55
 
 var bullet_scn
 
+var sprite
+var sins
+
 # the directional buttons the player is pressing
 var input = [0, 0, 0, 0]
 var shooting = false
@@ -12,16 +15,39 @@ var shooting = false
 # (isn't useful yet, but we'll need it when the player has actual animations)
 var lastDir = 0
 var reload_time = 0
+var sin_theta = 0
 
 var i_frames = 0
 var health = 3
 
 func _ready():
 	bullet_scn = load("res://Scenes/PlayerBullet.tscn")
+	
+	sprite = $Sprite
+	sins = [
+		$Gluttony,
+		$Sloth,
+		$Envy,
+		$Wrath,
+		$Greed,
+		$Lust,
+		$Pride
+	]
 
 func _physics_process(delta):
+	sin_theta += delta
 	reload_time -= delta
 	i_frames -= delta
+	
+	for i in range(len(sins)):
+		sins[i].rect_position.x = cos(sin_theta + (i*2*PI/7.0))*25-15
+		sins[i].rect_position.y = sin(sin_theta + (i*2*PI/7.0))*25-15
+	
+	#i_frame flicker
+	if i_frames > 0 and int(floor(i_frames*20))%2==0:
+		sprite.modulate.a = 0
+	else:
+		sprite.modulate.a = 1
 	
 	var velocity = Vector2(int(input[3])-int(input[2]), int(input[1])-int(input[0]))
 	if velocity.x > 0:

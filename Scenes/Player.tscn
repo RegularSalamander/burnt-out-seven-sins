@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Art/player.png" type="Texture" id=2]
+[ext_resource path="res://fancySalamander (1).ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2.45652, 3.59294 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2.59761, 2.62074 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 16
@@ -27,5 +31,84 @@ shape = SubResource( 1 )
 visible = false
 position = Vector2( -0.547134, 7.40703 )
 shape = SubResource( 2 )
+
+[node name="Gluttony" type="RichTextLabel" parent="."]
+margin_left = -19.6187
+margin_top = -8.39519
+margin_right = 32.0
+margin_bottom = 16.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Gluttony"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sloth" type="RichTextLabel" parent="."]
+margin_left = -12.9012
+margin_top = -8.49569
+margin_right = 55.0
+margin_bottom = 24.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Sloth"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Envy" type="RichTextLabel" parent="."]
+anchor_left = -7.555
+anchor_right = -7.555
+margin_left = -10.6031
+margin_top = -8.21841
+margin_right = 52.0
+margin_bottom = 21.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Envy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wrath" type="RichTextLabel" parent="."]
+margin_left = -12.1941
+margin_top = -7.59969
+margin_right = 52.0
+margin_bottom = 21.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Wrath"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Greed" type="RichTextLabel" parent="."]
+margin_left = -13.1664
+margin_top = -8.92552
+margin_right = 49.0
+margin_bottom = 25.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Greed"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lust" type="RichTextLabel" parent="."]
+margin_left = -10.6031
+margin_top = -8.39519
+margin_right = 46.0
+margin_bottom = 22.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Lust"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pride" type="RichTextLabel" parent="."]
+margin_left = -11.045
+margin_top = -8.21841
+margin_right = 46.0
+margin_bottom = 20.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Pride"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

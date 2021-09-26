@@ -3,8 +3,6 @@ extends Node2D
 var world_gen
 var player
 
-var health = 0
-
 var sins = [
 	0, #wrath
 	0, #gluttony
