@@ -19,6 +19,7 @@ var sin_theta = 0
 
 var i_frames = 0
 var health = 3
+var can_move = true
 
 func _ready():
 	bullet_scn = load("res://Scenes/PlayerBullet.tscn")
@@ -48,6 +49,8 @@ func _physics_process(delta):
 		sprite.modulate.a = 0
 	else:
 		sprite.modulate.a = 1
+	if not can_move:
+		return
 	
 	var velocity = Vector2(int(input[3])-int(input[2]), int(input[1])-int(input[0]))
 	if velocity.x > 0:
