@@ -4,7 +4,7 @@
 [ext_resource path="res://Art/player.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2.45652, 4.63867 )
+extents = Vector2( 2.45652, 3.59294 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2.59761, 2.62074 )
@@ -24,6 +24,7 @@ position = Vector2( -0.531185, 5.40897 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -0.547134, 7.40703 )
 shape = SubResource( 2 )
 

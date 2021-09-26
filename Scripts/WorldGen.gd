@@ -29,8 +29,8 @@ func _ready():
 # set the y the player is at
 func set_height(player_height):
 	#screen border half the height under player
-	if player_height < screen_border.position.y - 224/2:
-		screen_border.position = Vector2(0, player_height + 224/2)
+	if player_height < screen_border.position.y - 225/2:
+		screen_border.position = Vector2(0, player_height + 225/2)
 	
 	var did_move = false
 	#generate 100 pixels ahead of the player

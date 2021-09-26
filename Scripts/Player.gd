@@ -37,7 +37,7 @@ func _physics_process(delta):
 		var new_bullet = bullet_scn.instance()
 		new_bullet.position = position
 		new_bullet.velocity = Vector2(0, -110)
-		new_bullet.time_to_live = 2
+		new_bullet.time_to_live = 1
 		get_parent().add_child(new_bullet)
 		# half second reload
 		reload_time = 0.5

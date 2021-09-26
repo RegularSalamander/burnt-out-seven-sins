@@ -7,10 +7,10 @@ var health = 0
 
 var sins = [
 	0, #wrath
-	0, #pride
 	0, #gluttony
 	0, #sloth
 	0, #greed
+	0, #pride
 	0,
 	0
 ]
