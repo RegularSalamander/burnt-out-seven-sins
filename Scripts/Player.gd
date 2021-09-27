@@ -43,6 +43,9 @@ func _physics_process(delta):
 	i_frames -= delta
 	
 	for i in range(len(sins)):
+		# lower all but red when alpha is greater than 0.8
+		sins[i].modulate.g = min(max(0, sins[i].modulate.a*-5 + 5), 1)
+		sins[i].modulate.b = min(max(0, sins[i].modulate.a*-5 + 5), 1)
 		var shake_x = rng.randf_range(-2.0, 2.0)
 		var shake_y = rng.randf_range(-2.0, 2.0)
 		sins[i].rect_position.x = cos(sin_theta + (i*2*PI/7.0))*25-15 + shake_x * sins[i].modulate.a
@@ -74,6 +77,7 @@ func _physics_process(delta):
 		get_parent().add_child(new_bullet)
 		# half second reload
 		reload_time = 0.5
+		get_parent().sins[1] += 0.1 #greed up
 	
 	velocity *= moveSpeed
 	if shooting:
