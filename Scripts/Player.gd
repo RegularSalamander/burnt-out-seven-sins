@@ -19,6 +19,9 @@ var sin_theta = 0
 
 var i_frames = 0
 var health = 3
+var can_move = true
+
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	bullet_scn = load("res://Scenes/PlayerBullet.tscn")
@@ -40,14 +43,18 @@ func _physics_process(delta):
 	i_frames -= delta
 	
 	for i in range(len(sins)):
-		sins[i].rect_position.x = cos(sin_theta + (i*2*PI/7.0))*25-15
-		sins[i].rect_position.y = sin(sin_theta + (i*2*PI/7.0))*25-15
+		var shake_x = rng.randf_range(-2.0, 2.0)
+		var shake_y = rng.randf_range(-2.0, 2.0)
+		sins[i].rect_position.x = cos(sin_theta + (i*2*PI/7.0))*25-15 + shake_x * sins[i].modulate.a
+		sins[i].rect_position.y = sin(sin_theta + (i*2*PI/7.0))*25-15 + shake_y * sins[i].modulate.a
 	
 	#i_frame flicker
 	if i_frames > 0 and int(floor(i_frames*20))%2==0:
 		sprite.modulate.a = 0
 	else:
 		sprite.modulate.a = 1
+	if not can_move:
+		return
 	
 	var velocity = Vector2(int(input[3])-int(input[2]), int(input[1])-int(input[0]))
 	if velocity.x > 0:
@@ -109,6 +116,6 @@ func _on_Hurtbox_area_entered(area):
 	if i_frames <= 0:
 		health -= 1
 		i_frames = 0.5 #half a second of invincibility
-		get_parent().time_since_player_damaged = 0 #for sloth sin
+		get_parent().sins[6] -= 1 #pride sin down
 	
 	print(health)

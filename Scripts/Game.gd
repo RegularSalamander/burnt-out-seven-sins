@@ -2,36 +2,45 @@ extends Node2D
 
 var world_gen
 var player
+var sin_labels
 
 var sins = [
-	0, #wrath
-	0, #gluttony
-	0, #sloth
-	0, #greed
-	0, #pride
-	0,
-	0
+	0, #0: sloth
+	0, #1: greed
+	0, #2: gluttony
+	0, #3: wrath
+	0, #4: envy
+	0, #5: lust
+	0 #6: pride
 ]
-
-#variables needed to keep track of sins
-var time_since_moved = 0
-var time_since_player_damaged = 0
 
 func _ready():
 	world_gen = $WorldGen
 	player = $Player
+	sin_labels = [
+		$Player/Sloth,
+		$Player/Greed,
+		$Player/Gluttony,
+		$Player/Wrath,
+		$Player/Envy,
+		$Player/Lust,
+		$Player/Pride
+	]
 
 func _process(delta):
-	time_since_moved += delta
-	time_since_player_damaged += delta
+	#TODO implement the up or down mechanic of every sin
+	sins[0] += 0.005 #sloth up fast
+	sins[6] += 0.001 #pride up slow
 	
-	if time_since_moved > 5: #5 seconds of not moving
-		sins[3] += 1 #sloth sin
-		time_since_moved -= 5
-	if time_since_player_damaged > 10: #20 seconds of not being damaged
-		sins[1] += 1 #pride sin
-		time_since_player_damaged -= 10
+	sins[1] -= 0.001 #greed down slow
+	sins[2] -= 0.001 #gluttony down slow
+	sins[3] -= 0.001 #wrath down slow
+	sins[4] -= 0.001 #envy down slow
+	sins[5] -= 0.001 #lust down slow
 	
-	#returns true if the max height generated moved up
-	if world_gen.set_height(player.position.y):
-		time_since_moved = 0
+		
+	for i in range(7):
+		sins[i] = max(min(sins[i], 1), 0) #constrain between 0 and 1
+		sin_labels[i].modulate.a = sins[i]
+	
+	world_gen.set_height(player.position.y)

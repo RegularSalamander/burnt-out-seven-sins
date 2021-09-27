@@ -32,14 +32,11 @@ func set_height(player_height):
 	if player_height < screen_border.position.y - 225/2:
 		screen_border.position = Vector2(0, player_height + 225/2)
 	
-	var did_move = false
 	#generate 100 pixels ahead of the player
 	while player_height - 100 < last_height_generated:
-		did_move = true
 		# placeholder stairs are 72 pixels tall
 		last_height_generated -= 72
 		generate(last_height_generated)
-	return did_move
 
 func generate(height):
 	var new_stairs = stair_scn.instance()

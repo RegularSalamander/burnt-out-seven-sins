@@ -8,4 +8,5 @@ func _ready():
 func _process(_delta):
 	if player.position.y < position.y:
 		position = Vector2(0, floor(player.position.y))
+		get_parent().sins[0] -= 0.01 #sloth down faster
 	pass

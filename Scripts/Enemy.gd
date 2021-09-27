@@ -106,4 +106,4 @@ func _on_Hurtbox_area_entered(area):
 	# so checking the object doesn't matter
 	# this will only be called when the enemy collides player bullets
 	health -= 1
-	get_parent().sins[0] += 1 #wrath sin
+	get_parent().sins[3] += 0.3 #wrath sin
