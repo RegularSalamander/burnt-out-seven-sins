@@ -31,6 +31,8 @@ func _ready():
 
 func _physics_process(delta):
 	if health <= 0:
+		if rng.randf() < 0.5: #50% chance of an item
+			get_parent().spawn_item(position, true)
 		queue_free()
 	if position.y - get_parent().get_node("Player").position.y > 150:
 		queue_free()

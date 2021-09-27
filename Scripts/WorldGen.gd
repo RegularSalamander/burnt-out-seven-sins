@@ -54,6 +54,7 @@ func generate(height):
 				get_parent().add_child(new_enemy)
 				last_enemy_height = height
 				budget -= enemy_data["enemies"][enemy_idx]["difficulty"]
-		
+	if rng.randf() < 0.3: #30% chance of a spawned item
+		get_parent().spawn_item(Vector2(rng.randf_range(-50, 50), rng.randf_range(-30, 30)+height), false)
 	
 	#todo: obstacles
