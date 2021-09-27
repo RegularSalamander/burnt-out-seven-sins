@@ -6,8 +6,9 @@ var dialogActive : bool
 
 var textNode : RichTextLabel
 var portraitNode : TextureRect
+var soundNode : AudioStreamPlayer
 
-var textPeriod : float = 0.01
+var textPeriod : float = 0.03
 var textTime : float
 var textInd : int
 var text : String
@@ -17,6 +18,7 @@ export (String, FILE) var initDialog : String = ""
 func _ready():
 	textNode = get_node("TextArea/DialogText")
 	portraitNode = get_node("TextArea/PortraitPicture")
+	soundNode = get_node("TalkingSound")
 	visible = false
 	if initDialog != "":
 		start(initDialog)
@@ -42,14 +44,15 @@ func dialogNext():
 					textNode.text = ""
 					text = next
 					textTime = textPeriod
+					soundNode.stream = load("res://Sounds/sawtooth.wav")
+					soundNode.play()
 				return null
 			TYPE_ARRAY:
 				dialogQueue = next + dialogQueue
 			TYPE_DICTIONARY:
 				match next["type"]:
 					"set-portrait":
-						var texture : ImageTexture = ImageTexture.new()
-						texture.load("res://" + next["res"])
+						var texture = load("res://" + next["res"])
 						portraitNode.texture = texture
 	dialogClose()
 
@@ -78,6 +81,8 @@ func _process(delta):
 			textTime += textPeriod
 			textInd += 1
 			textNode.text = text.left(textInd)
+		if textInd >= text.length():
+			soundNode.stop()
 
 func _input(event):
 	if dialogActive && event.is_action_pressed("ui_accept"):
