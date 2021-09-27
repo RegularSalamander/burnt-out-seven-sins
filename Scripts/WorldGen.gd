@@ -44,16 +44,19 @@ func generate(height):
 	add_child(new_stairs)
 	# 200 pixels since last enemy spawn
 	if height - last_enemy_height < -200:
-		var budget = 5 #should be based on difficulty
-		while budget > 0:
+		var budget = 6 #should be based on difficulty
+		var enemies_spawned = 0
+		while budget >= 1 and enemies_spawned < 3:
 			var enemy_idx = rng.randi_range(0, enemy_data["enemies"].size()-1)
 			if enemy_data["enemies"][enemy_idx]["difficulty"] <= budget:
+				enemies_spawned += 1
 				var new_enemy = enemy_scn.instance() #todo: make random and determined by difficulty
 				new_enemy.load_enemy(enemy_idx)
 				new_enemy.position.y = height
 				get_parent().add_child(new_enemy)
 				last_enemy_height = height
 				budget -= enemy_data["enemies"][enemy_idx]["difficulty"]
-		
+	if rng.randf() < 0.3: #30% chance of a spawned item
+		get_parent().spawn_item(Vector2(rng.randf_range(-50, 50), rng.randf_range(-30, 30)+height), false)
 	
 	#todo: obstacles

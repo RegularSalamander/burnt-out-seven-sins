@@ -4,6 +4,11 @@ var world_gen
 var player
 var sin_labels
 
+var rng = RandomNumberGenerator.new()
+
+var heart_scn
+var powerup_scn
+
 var sins = [
 	0, #0: sloth
 	0, #1: greed
@@ -15,6 +20,8 @@ var sins = [
 ]
 
 func _ready():
+	rng.randomize()
+	
 	world_gen = $WorldGen
 	player = $Player
 	sin_labels = [
@@ -26,10 +33,12 @@ func _ready():
 		$Player/Lust,
 		$Player/Pride
 	]
+	heart_scn = load("res://Scenes/Heart.tscn")
+	powerup_scn = load("res://Scenes/Powerup.tscn")
 
 func _process(delta):
 	#TODO implement the up or down mechanic of every sin
-	sins[0] += 0.005 #sloth up fast
+	sins[0] += 0.003 #sloth up fast
 	sins[6] += 0.001 #pride up slow
 	
 	sins[1] -= 0.001 #greed down slow
@@ -44,3 +53,16 @@ func _process(delta):
 		sin_labels[i].modulate.a = sins[i]
 	
 	world_gen.set_height(player.position.y)
+
+func spawn_item(pos, is_from_enemy):
+	if rng.randf() < 0.2: #20% chance of a powerup
+		var new_powerup = powerup_scn.instance()
+		new_powerup.position = pos
+		new_powerup.is_from_enemy = is_from_enemy
+		add_child(new_powerup)
+	else:
+		var new_heart = heart_scn.instance()
+		new_heart.position = pos
+		new_heart.is_from_enemy = is_from_enemy
+		add_child(new_heart)
+	pass
