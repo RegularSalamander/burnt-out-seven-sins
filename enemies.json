@@ -3,7 +3,7 @@
         {
             "difficulty": 1,
             "health": 1,
-            "min_x_position": -60.0,
+            "min_x_position": -50.0,
             "max_x_position": 0.0,
             "instructions": [
                 "right", 0,
@@ -17,8 +17,8 @@
         {
             "difficulty": 2,
             "health": 1,
-            "min_x_position": -60.0,
-            "max_x_position": 60.0,
+            "min_x_position": -50.0,
+            "max_x_position": 50.0,
             "instructions": [
                 "random", 0,
                     "shoot target", 1,
@@ -26,10 +26,57 @@
             ]
         },
         {
+            "difficulty": 2,
+            "health": 2,
+            "min_x_position": -50.0,
+            "max_x_position": 50.0,
+            "instructions": [
+                "random", 2.5,
+                    "shoot circle", 1
+            ]
+        },
+        {
+            "difficulty": 3,
+            "health": 2,
+            "min_x_position": -50.0,
+            "max_x_position": 50.0,
+            "instructions": [
+                "left", 0,
+                    "shoot target", 0.5,
+                    "shoot target", 0.5,
+                "stop", 1,
+                "left", 0,
+                    "shoot target", 0.5,
+                    "shoot target", 0.5,
+                "right", 0,
+                    "shoot target", 0.5,
+                    "shoot target", 0.5,
+                    "shoot target", 0.5,
+                    "shoot target", 0.5
+                    
+            ]
+        },
+        {
+            "difficulty": 4,
+            "health": 2,
+            "min_x_position": -50.0,
+            "max_x_position": -50.0,
+            "instructions": [
+                "stop", 0,
+                    "shoot circle", 0.5,
+                    "shoot circle offset", 0.5,
+                "right", 3.5,
+                "stop", 0,
+                    "shoot circle", 0.5,
+                    "shoot circle offset", 0.5,
+                "left", 3.5
+            ]
+        },
+        {
             "difficulty": 5,
             "health": 3,
-            "min_x_position": -60.0,
-            "max_x_position": 0.0,
+            "min_x_position": -50.0,
+            "max_x_position": 50.0,
             "instructions": [
                 "random", 0.3,
                     "shoot target", 0.1,

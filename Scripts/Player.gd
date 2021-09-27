@@ -51,6 +51,7 @@ func _physics_process(delta):
 		sins[i].modulate.b = min(max(0, sins[i].modulate.a*-5 + 5), 1)
 		if sins[i].modulate.a >= 1:
 			sins[i].modulate.g = 1
+			can_move = false
 		var shake_x = rng.randf_range(-2.0, 2.0)
 		var shake_y = rng.randf_range(-2.0, 2.0)
 		sins[i].rect_position.x = cos(sin_theta + (i*2*PI/7.0))*25-15 + shake_x * sins[i].modulate.a
@@ -132,7 +133,7 @@ func _on_Hurtbox_area_entered(area):
 		# this will only be called when the player collides with enemies or enemy bullets
 		if i_frames <= 0:
 			health -= 1
-			i_frames = 0.5 #half a second of invincibility
+			i_frames = 1 #a second of invincibility
 			get_parent().sins[6] -= 1 #pride sin down
 	area.get_parent().queue_free()
 	print(area.get_parent().name)
