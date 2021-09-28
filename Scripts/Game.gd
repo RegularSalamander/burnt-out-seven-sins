@@ -47,10 +47,13 @@ func _process(delta):
 	sins[4] -= 0.001 #envy down slow
 	sins[5] -= 0.001 #lust down slow
 	
-		
+	
 	for i in range(7):
+		if i + 2 > world_gen.player_level or not player.can_move: #sin not active yet, or no sins active
+			sins[i] = 0
 		sins[i] = max(min(sins[i], 1), 0) #constrain between 0 and 1
 		sin_labels[i].modulate.a = sins[i]
+		
 	
 	world_gen.set_height(player.position.y)
 

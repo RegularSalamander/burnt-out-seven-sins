@@ -36,6 +36,8 @@ func _ready():
 		$Lust,
 		$Pride
 	]
+	for i in sins:
+		i.modulate.a = 0
 
 func _physics_process(delta):
 	sin_theta += delta
@@ -118,22 +120,25 @@ func _input(event):
 
 
 func _on_Hurtbox_area_entered(area):
+	if not can_move: #don't hurt the player during dialog
+		return
 	#delete the bullet or pickup that hit
 	if area.get_parent().name.begins_with("Heart") or area.get_parent().name.begins_with("@Heart"):
-		health = min(3, health+1) #limit to three hearts
-		get_parent().sins[5] += 0.6 #lust sin up
-		if area.get_parent().is_from_enemy:
-			get_parent().sins[4] += 0.6 #envy sin up
+		if health < 3:
+			health += 1
+			area.get_parent().queue_free()
+			get_parent().sins[5] += 0.6 #lust sin up
+			if area.get_parent().is_from_enemy:
+				get_parent().sins[4] += 0.6 #envy sin up
 	elif area.get_parent().name.begins_with("Powerup") or area.get_parent().name.begins_with("@Powerup"):
+		#TODO add powerup
+		area.get_parent().queue_free()
 		if area.get_parent().is_from_enemy:
 			get_parent().sins[4] += 0.6 #envy sin up
 		pass
 	elif area.get_parent().name.begins_with("Bullet") or area.get_parent().name.begins_with("@Bullet"):
-		# so checking the object doesn't matter
-		# this will only be called when the player collides with enemies or enemy bullets
 		if i_frames <= 0:
 			health -= 1
-			i_frames = 1 #a second of invincibility
+			i_frames = 1 # a second of invincibility
 			get_parent().sins[6] -= 1 #pride sin down
-	area.get_parent().queue_free()
-	print(area.get_parent().name)
+			area.get_parent().queue_free()
