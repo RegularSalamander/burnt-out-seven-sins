@@ -4,6 +4,11 @@ var bullet_scn
 
 var velocity = Vector2(0, 0)
 
+var animation_frame = 0
+var time_since_shot = 10
+
+var dead_enemy_scn
+
 # does the instruction, then waits the time (in seconds)
 var instructions = []
 var instruction_time_left = 0
@@ -28,9 +33,20 @@ func load_enemy(enemy_idx):
 
 func _ready():
 	bullet_scn = load("res://Scenes/EnemyBullet.tscn")
+	dead_enemy_scn = load("res://Scenes/Dead Enemy.tscn")
 
 func _physics_process(delta):
+	animation_frame += delta * 5
+	time_since_shot += delta
+	var frame = int(floor(animation_frame))%2
+	if time_since_shot < 0.3:
+		frame += 2
+	$Sprite.frame = frame
+	
 	if health <= 0:
+		var new_dead_enemy = dead_enemy_scn.instance()
+		new_dead_enemy.position = position
+		get_parent().add_child(new_dead_enemy)
 		if rng.randf() < 0.5: #50% chance of an item
 			get_parent().spawn_item(position, true)
 		queue_free()
@@ -48,6 +64,9 @@ func _physics_process(delta):
 	move_and_slide(velocity)
 
 func do_instruction(instruction):
+	if instruction.begins_with("shoot"):
+		time_since_shot = 0
+
 	if instruction == "stop":
 		velocity = Vector2(0, 0)
 	elif instruction == "right":

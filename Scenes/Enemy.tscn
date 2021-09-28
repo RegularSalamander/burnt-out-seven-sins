@@ -4,30 +4,31 @@
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.38253, 4.42005 )
+extents = Vector2( 14.575, 12.8169 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 5.27069, 4.70495 )
+extents = Vector2( 5.80112, 11.1572 )
 
 [node name="Enemy" type="KinematicBody2D"]
-z_index = 4
+z_index = 5
 collision_layer = 2
 collision_mask = 16
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+hframes = 4
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2( -0.642166, 5.54873 )
+position = Vector2( -0.730553, 0.157035 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.618721, 4.77297 )
+position = Vector2( -0.530338, 0.883875 )
 shape = SubResource( 2 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

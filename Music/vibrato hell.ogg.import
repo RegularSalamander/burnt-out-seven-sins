@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/vibrato hell.ogg-bd6d505070891eed60dbc2c54f360876.oggstr"
+
+[deps]
+
+source_file="res://Music/vibrato hell.ogg"
+dest_files=[ "res://.import/vibrato hell.ogg-bd6d505070891eed60dbc2c54f360876.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
