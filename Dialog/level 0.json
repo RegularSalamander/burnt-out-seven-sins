@@ -1,0 +1,6 @@
+{
+    "start": [
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "TODO."
+    ]
+}

@@ -26,6 +26,7 @@ func _ready():
 
 func dialogClose():
 	# Engine.time_scale = 1
+	get_parent().get_parent().get_parent().get_node("Player").can_move = true
 	visible = false
 	dialogActive = false
 	portraitNode.texture = null
@@ -70,6 +71,7 @@ func startSpec(diaSpec):
 	portraitNode.texture = null
 	match typeof(diaSpec):
 		TYPE_DICTIONARY:
+			get_parent().get_parent().get_parent().get_node("Player").can_move = false
 			dialog = diaSpec
 			dialogQueue = [dialog["start"]]
 			dialogNext()

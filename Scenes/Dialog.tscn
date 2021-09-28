@@ -70,6 +70,9 @@ anchor_right = 0.25
 anchor_bottom = 0.95
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TalkingSound" type="AudioStreamPlayer" parent="."]
 volume_db = -3.0

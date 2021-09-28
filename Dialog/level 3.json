@@ -1,0 +1,14 @@
+{
+    "start": [
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "wow..",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "not ded yet, huh?",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "yeahhhh, u know those power ups?",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "It's literal dogwater, just like u <3",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "how about you stop being a glutton this time, k?"
+    ]
+}

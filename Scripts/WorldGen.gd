@@ -11,10 +11,10 @@ var enemy_scn
 var screen_border
 var enemy_data
 
-var level = 1 #starts at 0, goes to 7
+var level = 0 #starts at 0, goes to 7
 var player_level = 0 #the level the player is actually in
 var progress = 0 #progress through the level
-var difficulty = 3
+var difficulty = 1
 #0 is saint (easy),
 #1 is normal,
 #2 is sinner (hard),
@@ -63,10 +63,10 @@ func generate(height):
 			get_parent().spawn_item(Vector2(rng.randf_range(-50, 50), rng.randf_range(-30, 30)+height), false)
 	if progress > 3  and progress < 30 and progress%3 == 0:
 		#budget of enemy spawning is determined by level and difficulty
-		#set to level+difficulty
+		#set to level+difficulty+1
 		#minimum is 1
-		#maximum is 5+difficulty
-		var budget = min(max(level+difficulty, 1), 5+difficulty)
+		#maximum is 6+difficulty
+		var budget = min(max(level+difficulty+1, 1), 6+difficulty)
 		var enemies_spawned = 0
 		while budget >= 1 and enemies_spawned < 3:
 			var enemy_idx = rng.randi_range(0, enemy_data["enemies"].size()-1)

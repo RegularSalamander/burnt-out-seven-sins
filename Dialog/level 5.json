@@ -1,0 +1,8 @@
+{
+    "start": [
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "woooooew, it must be sad being such a broke, jealous person that steals from others.",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "try keeping ur hands to urself 4 a change."
+    ]
+}

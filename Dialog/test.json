@@ -1,6 +1,7 @@
 {
     "start": [
-        "OHNO, YOU GOT KICKED DOWN THE STAIRS. NOW YOU HAVE TO GET BACK UP."
-        ,{"type":"set-portrait", "res":"Art/smiley.tres"}
-        ,"GET BACK UP QUICKLY."]
+        "OHNO, YOU GOT KICKED DOWN THE STAIRS. NOW YOU HAVE TO GET BACK UP.",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "GET BACK UP QUICKLY."
+    ]
 }

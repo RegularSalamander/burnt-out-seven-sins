@@ -1,0 +1,8 @@
+{
+    "start": [
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "well WOWWWW you think ur such a pro?",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "take ur ego down a notch and just perish 4 me, k? <3"
+    ]
+}

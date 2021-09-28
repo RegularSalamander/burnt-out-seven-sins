@@ -1,0 +1,8 @@
+{
+    "start": [
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "hmmm, so ur still alive?",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "u shud put that gun away b4 u hurt urself?"
+    ]
+}

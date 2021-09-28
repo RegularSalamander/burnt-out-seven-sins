@@ -1,0 +1,8 @@
+{
+    "start": [
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "ugggh watching u is so boring, newb. ur going waaay 2 slow.",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "How bout u pick up the pace <3"
+    ]
+}
