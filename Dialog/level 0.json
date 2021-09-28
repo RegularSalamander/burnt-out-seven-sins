@@ -1,6 +1,12 @@
 {
     "start": [
         {"type":"set-portrait", "res":"Art/smiley.tres"},
-        "TODO."
+        "wowww you look confused. new to hell or something?",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "that means ur dead, newb <3",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "what? oh this is the stairway to heaven.",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "heeeyyy, maybe if u climb all the way up, they'll let u live again! "
     ]
 }

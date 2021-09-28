@@ -34,7 +34,7 @@ rect_pivot_offset = Vector2( 0.5, 0 )
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.1, 0.1 )
+motion_scale = Vector2( 0, 0.035 )
 
 [node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 0.53035, -309.774 )

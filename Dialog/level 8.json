@@ -1,0 +1,10 @@
+{
+    "start": [
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "no way u actually believed me right?",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "they don't let sinners into heaven",
+        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        "and they definitely don't let people come back to life."
+    ]
+}
