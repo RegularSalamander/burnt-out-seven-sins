@@ -74,10 +74,10 @@ func _physics_process(delta):
 	
 	var velocity = Vector2(int(input[3])-int(input[2]), int(input[1])-int(input[0]))
 	
-	if not velocity:
-		$Sprite.frame = 0
-	else:
-		$Sprite.frame = int(floor(animation_frame))%2+1
+	$Sprite.frame = int(floor(animation_frame))%2
+	if velocity:
+		$Sprite.frame += 2
+		
 	
 	if shooting and reload_time <= 0:
 		var new_bullet = bullet_scn.instance()

@@ -2,7 +2,6 @@ extends Node2D
 
 # furthest height generated
 var last_height_generated = 0
-var last_enemy_height = 0
 
 var stair_scn
 var platform_scn
@@ -14,11 +13,7 @@ var enemy_data
 var level = 0 #starts at 0, goes to 7
 var player_level = 0 #the level the player is actually in
 var progress = 0 #progress through the level
-var difficulty = 1
-#0 is saint (easy),
-#1 is normal,
-#2 is sinner (hard),
-#3 is hell (super hard)
+
 
 var rng = RandomNumberGenerator.new()
 
@@ -38,6 +33,8 @@ func _ready():
 
 # set the y the player is at
 func set_height(player_height):
+	Global.checkpoint = player_level
+	
 	#screen border half the height under player
 	if player_height < screen_border.position.y - 225/2:
 		screen_border.position = Vector2(0, player_height + 225/2)
@@ -49,10 +46,12 @@ func set_height(player_height):
 		generate(last_height_generated)
 
 func generate(height):
+	if level == 9 and progress > 0 or level > 9:
+		return
 	if progress == 0:
 		var new_platform = platform_scn.instance()
 		new_platform.position.y = height
-		new_platform.get_node("DialogTrigger").level = level
+		new_platform.get_node("DialogTrigger").level = level-1
 		add_child(new_platform)
 		pass
 	if progress > 0:
@@ -63,10 +62,10 @@ func generate(height):
 			get_parent().spawn_item(Vector2(rng.randf_range(-50, 50), rng.randf_range(-30, 30)+height), false)
 	if progress > 3 and progress%3 == 0:
 		#budget of enemy spawning is determined by level and difficulty
-		#set to level+difficulty+1
+		#set to level+difficulty
 		#minimum is 1
 		#maximum is 6+difficulty
-		var budget = min(max(level+difficulty+1, 1), 6+difficulty)
+		var budget = min(max(level+Global.difficulty, 1), 6+Global.difficulty)
 		var enemies_spawned = 0
 		while budget >= 1 and enemies_spawned < 3:
 			var enemy_idx = rng.randi_range(0, enemy_data["enemies"].size()-1)
@@ -76,7 +75,6 @@ func generate(height):
 				new_enemy.load_enemy(enemy_idx)
 				new_enemy.position.y = height + rng.randf_range(-20.0, 20.0)
 				get_parent().add_child(new_enemy)
-				last_enemy_height = height
 				budget -= enemy_data["enemies"][enemy_idx]["difficulty"]
 	progress += 1
 	if progress == 30:

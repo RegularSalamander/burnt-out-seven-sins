@@ -9,8 +9,9 @@ extents = Vector2( 256.79, 10 )
 script = ExtResource( 1 )
 
 [node name="Screen Border" type="StaticBody2D" parent="."]
+position = Vector2( 0, 200 )
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Screen Border"]
-position = Vector2( 0, 112 )
+position = Vector2( -0.420441, 9.24986 )
 shape = SubResource( 1 )

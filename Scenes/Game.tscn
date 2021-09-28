@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Dialog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/WorldGen.tscn" type="PackedScene" id=2]
@@ -13,6 +13,13 @@
 [ext_resource path="res://Art/ui_progress_back.png" type="Texture" id=11]
 [ext_resource path="res://Art/ui_progress_flame.png" type="Texture" id=12]
 [ext_resource path="res://Art/ui_progress.png" type="Texture" id=13]
+[ext_resource path="res://Art/start.png" type="Texture" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 123.555 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 138.953, 10 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 5 )
@@ -31,10 +38,14 @@ script = ExtResource( 4 )
 [node name="CanvasLayer2" type="CanvasLayer" parent="Node2D"]
 
 [node name="Control" parent="Node2D/CanvasLayer2" instance=ExtResource( 1 )]
-margin_top = -287.0
+margin_left = 1.41418
+margin_top = -288.414
+margin_right = 1.41418
+margin_bottom = -1.41418
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 0.5, 0 )
+initDialog = ""
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -59,7 +70,7 @@ texture = ExtResource( 9 )
 hframes = 4
 
 [node name="Fadeout" type="Sprite" parent="CanvasLayer"]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 0, 0, 0, 1 )
 scale = Vector2( 400, 225 )
 texture = ExtResource( 10 )
 centered = false
@@ -83,3 +94,26 @@ texture = ExtResource( 12 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
+
+[node name="start" type="StaticBody2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start"]
+position = Vector2( -191.626, 106.066 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="start"]
+position = Vector2( 188.798, 107.48 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="start"]
+position = Vector2( -219.203, -25.4558 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="start"]
+position = Vector2( 211.425, -24.7487 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="start"]
+position = Vector2( 0, 38 )
+texture = ExtResource( 14 )

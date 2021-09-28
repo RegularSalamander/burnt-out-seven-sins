@@ -37,6 +37,8 @@ func _ready():
 	]
 	heart_scn = load("res://Scenes/Heart.tscn")
 	powerup_scn = load("res://Scenes/Powerup.tscn")
+	
+	load_checkpoint(Global.checkpoint)
 
 func _process(delta):
 	$CanvasLayer/Health.frame = player.health
@@ -50,26 +52,27 @@ func _process(delta):
 			get_tree().change_scene("res://Scenes/Game.tscn")
 	$CanvasLayer/Fadeout.modulate.a = fade
 	
-	$CanvasLayer/progress.visible = world_gen.player_level >= 1
+	$CanvasLayer/progress.visible = world_gen.player_level >= 0
 	$CanvasLayer/progress/flame.position.y = player.position.y/(72*30*8) * 128 + 181
 	
-	#TODO implement the up or down mechanic of every sin
-	sins[0] += 0.003 #sloth up fast
-	sins[6] += 0.001 #pride up slow
-	
-	sins[1] -= 0.001 #greed down slow
-	sins[2] -= 0.001 #gluttony down slow
-	sins[3] -= 0.001 #wrath down slow
-	sins[4] -= 0.001 #envy down slow
-	sins[5] -= 0.001 #lust down slow
-	
-	
+	var update_sins = true
 	for i in range(7):
-		if i + 2 > world_gen.player_level or not player.can_move: #sin not active yet, or no sins active
+		if sins[i] >= 1:
+			update_sins = false
+	if update_sins:
+		sins[0] += 0.003 #sloth up fast
+		sins[6] += 0.001 #pride up slow
+		
+		sins[1] -= 0.001 #greed down slow
+		sins[2] -= 0.001 #gluttony down slow
+		sins[3] -= 0.001 #wrath down slow
+		sins[4] -= 0.001 #envy down slow
+		sins[5] -= 0.001 #lust down slow
+	for i in range(7):
+		if Global.just_loaded or update_sins and (not player.can_move or (i + 2 > world_gen.player_level and Global.difficulty != 3)):
 			sins[i] = 0
 		sins[i] = max(min(sins[i], 1), 0) #constrain between 0 and 1
 		sin_labels[i].modulate.a = sins[i]
-		
 	
 	world_gen.set_height(player.position.y)
 
@@ -85,3 +88,15 @@ func spawn_item(pos, is_from_enemy):
 		new_heart.is_from_enemy = is_from_enemy
 		add_child(new_heart)
 	pass
+
+func load_checkpoint(level):
+	Global.just_loaded = true
+	world_gen.level = (level-1)
+	world_gen.player_level = (level-1)
+	if level == 1:
+		world_gen.level = 1
+		world_gen.player_level = 1
+		return
+	world_gen.progress = 28
+	world_gen.last_height_generated = -72*30*(level-1)+72*2
+	player.position.y = -72*30*(level-1)-30
