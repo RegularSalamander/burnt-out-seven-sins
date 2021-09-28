@@ -22,6 +22,8 @@ var i_frames = 0
 var health = 3
 var can_move = true
 
+var animation_frame = 0
+
 var rng = RandomNumberGenerator.new()
 
 func _ready():
@@ -41,6 +43,7 @@ func _ready():
 		i.modulate.a = 0
 
 func _physics_process(delta):
+	animation_frame += delta*5
 	sin_theta += delta
 	powerup_time -= delta
 	reload_time -= delta
@@ -55,7 +58,7 @@ func _physics_process(delta):
 		sins[i].modulate.b = min(max(0, sins[i].modulate.a*-5 + 5), 1)
 		if sins[i].modulate.a >= 1:
 			sins[i].modulate.g = 1
-			can_move = false
+			health = 0 #trigger game over
 		var shake_x = rng.randf_range(-2.0, 2.0)
 		var shake_y = rng.randf_range(-2.0, 2.0)
 		sins[i].rect_position.x = cos(sin_theta + (i*2*PI/7.0))*25-15 + shake_x * sins[i].modulate.a
@@ -70,14 +73,11 @@ func _physics_process(delta):
 		return
 	
 	var velocity = Vector2(int(input[3])-int(input[2]), int(input[1])-int(input[0]))
-	if velocity.x > 0:
-		lastDir = 3
-	elif velocity.x < 0:
-		lastDir = 1
-	elif velocity.y < 0:
-		lastDir = 2
-	elif velocity.y > 0:
-		lastDir = 0
+	
+	if not velocity:
+		$Sprite.frame = 0
+	else:
+		$Sprite.frame = int(floor(animation_frame))%2+1
 	
 	if shooting and reload_time <= 0:
 		var new_bullet = bullet_scn.instance()

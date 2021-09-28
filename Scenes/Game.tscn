@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Dialog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/WorldGen.tscn" type="PackedScene" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://Music/vibrato hell.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Art/background.png" type="Texture" id=7]
 [ext_resource path="res://Art/placeholder_ui.png" type="Texture" id=8]
+[ext_resource path="res://Art/ui_health.png" type="Texture" id=9]
+[ext_resource path="res://Art/black.png" type="Texture" id=10]
+[ext_resource path="res://Art/ui_progress_back.png" type="Texture" id=11]
+[ext_resource path="res://Art/ui_progress_flame.png" type="Texture" id=12]
+[ext_resource path="res://Art/ui_progress.png" type="Texture" id=13]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 5 )
@@ -47,6 +52,33 @@ texture = ExtResource( 7 )
 visible = false
 texture = ExtResource( 8 )
 centered = false
+
+[node name="Health" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 26.8195, 25.7611 )
+texture = ExtResource( 9 )
+hframes = 4
+
+[node name="Fadeout" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 400, 225 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="progress" type="Node2D" parent="CanvasLayer"]
+
+[node name="Front" type="Sprite" parent="CanvasLayer/progress"]
+position = Vector2( 360, 112 )
+z_index = 2
+texture = ExtResource( 13 )
+
+[node name="Back" type="Sprite" parent="CanvasLayer/progress"]
+position = Vector2( 360, 112 )
+texture = ExtResource( 11 )
+
+[node name="flame" type="Sprite" parent="CanvasLayer/progress"]
+position = Vector2( 360.503, 54.0605 )
+z_index = 1
+texture = ExtResource( 12 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )

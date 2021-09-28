@@ -9,6 +9,8 @@ var rng = RandomNumberGenerator.new()
 var heart_scn
 var powerup_scn
 
+var fade = 1
+
 var sins = [
 	0, #0: sloth
 	0, #1: greed
@@ -37,6 +39,20 @@ func _ready():
 	powerup_scn = load("res://Scenes/Powerup.tscn")
 
 func _process(delta):
+	$CanvasLayer/Health.frame = player.health
+	
+	if player.health > 0:
+		fade -= 0.01
+		fade = max(fade, 0)
+	else:
+		fade += 0.01
+		if fade >= 1:
+			get_tree().change_scene("res://Scenes/Game.tscn")
+	$CanvasLayer/Fadeout.modulate.a = fade
+	
+	$CanvasLayer/progress.visible = world_gen.player_level >= 1
+	$CanvasLayer/progress/flame.position.y = player.position.y/(72*30*8) * 128 + 181
+	
 	#TODO implement the up or down mechanic of every sin
 	sins[0] += 0.003 #sloth up fast
 	sins[6] += 0.001 #pride up slow

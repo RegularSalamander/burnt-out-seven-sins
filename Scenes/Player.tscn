@@ -5,7 +5,7 @@
 [ext_resource path="res://fancySalamander (1).ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2.45652, 3.59294 )
+extents = Vector2( 2.45652, 5.20578 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2.59761, 2.62074 )
@@ -20,17 +20,17 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+hframes = 3
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2( -0.531185, 5.40897 )
+position = Vector2( -0.597404, 7.72655 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -0.547134, 7.40703 )
+position = Vector2( -0.547134, 10.453 )
 shape = SubResource( 2 )
 
 [node name="Gluttony" type="RichTextLabel" parent="."]
