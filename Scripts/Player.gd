@@ -17,6 +17,7 @@ var lastDir = 0
 var reload_time = 0
 var sin_theta = 0
 
+var powerup_time = 0
 var i_frames = 0
 var health = 3
 var can_move = true
@@ -41,6 +42,7 @@ func _ready():
 
 func _physics_process(delta):
 	sin_theta += delta
+	powerup_time -= delta
 	reload_time -= delta
 	i_frames -= delta
 	
@@ -80,12 +82,21 @@ func _physics_process(delta):
 	if shooting and reload_time <= 0:
 		var new_bullet = bullet_scn.instance()
 		new_bullet.position = position
-		new_bullet.velocity = Vector2(0, -110)
-		new_bullet.time_to_live = 1
-		get_parent().add_child(new_bullet)
-		# half second reload
-		reload_time = 0.5
-		get_parent().sins[1] += 0.2 #greed up
+		if powerup_time <= 0:
+			new_bullet.velocity = Vector2(0, -110)
+			new_bullet.time_to_live = 1
+			get_parent().add_child(new_bullet)
+			# half second reload
+			reload_time = 0.5
+			get_parent().sins[1] += 0.1 #greed up
+		else:
+			new_bullet.velocity = Vector2(rng.randf_range(-50, 50), -110)
+			new_bullet.time_to_live = 1
+			get_parent().add_child(new_bullet)
+			# half second reload
+			reload_time = 0.1
+			get_parent().sins[1] += 0.04 #greed up, but 40% as much
+			get_parent().sins[2] += 0.1 #gluttony up
 	
 	velocity *= moveSpeed
 	if shooting:
@@ -131,7 +142,7 @@ func _on_Hurtbox_area_entered(area):
 			if area.get_parent().is_from_enemy:
 				get_parent().sins[4] += 0.6 #envy sin up
 	elif area.get_parent().name.begins_with("Powerup") or area.get_parent().name.begins_with("@Powerup"):
-		#TODO add powerup
+		powerup_time = 10 #10 seconds of powerups
 		area.get_parent().queue_free()
 		if area.get_parent().is_from_enemy:
 			get_parent().sins[4] += 0.6 #envy sin up

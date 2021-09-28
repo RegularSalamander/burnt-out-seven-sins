@@ -11,8 +11,8 @@ var enemy_scn
 var screen_border
 var enemy_data
 
-var level = 0 #starts at 0, goes to 7
-var player_level = 0 #the level the player is actually in
+var level = 2 #starts at 0, goes to 7
+var player_level = 2 #the level the player is actually in
 var progress = 0 #progress through the level
 var difficulty = 1
 #0 is saint (easy),
