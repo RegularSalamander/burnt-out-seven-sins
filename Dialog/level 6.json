@@ -1,10 +1,10 @@
 {
     "start": [
-        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        {"type":"set-portrait", "res":"Art/portrait_1.png"},
         "gross... im surprised ur stealing so many hearts...",
-        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        {"type":"set-portrait", "res":"Art/portrait_1.png"},
         "considering u look like that.",
-        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        {"type":"set-portrait", "res":"Art/portrait_0.png"},
         "how bout stop being such a player, k?"
     ]
 }

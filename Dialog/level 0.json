@@ -1,12 +1,12 @@
 {
     "start": [
-        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        {"type":"set-portrait", "res":"Art/portrait_0.png"},
         "wowww you look confused. new to hell or something?",
-        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        {"type":"set-portrait", "res":"Art/portrait_0.png"},
         "that means ur dead, newb <3",
-        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        {"type":"set-portrait", "res":"Art/portrait_1.png"},
         "what? oh this is the stairway to heaven.",
-        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        {"type":"set-portrait", "res":"Art/portrait_0.png"},
         "heeeyyy, maybe if u climb all the way up, they'll let u live again! "
     ]
 }

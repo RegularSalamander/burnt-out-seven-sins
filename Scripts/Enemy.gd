@@ -20,7 +20,7 @@ var rng = RandomNumberGenerator.new()
 
 func load_enemy(enemy_idx):
 	var handle : File = File.new()
-	var _o = handle.open("res://enemies.json", File.READ)
+	var _o = handle.open("res://Scripts/enemies.json", File.READ)
 	var fileText = handle.get_as_text()
 	handle.close()
 	var enemies = parse_json(fileText)
