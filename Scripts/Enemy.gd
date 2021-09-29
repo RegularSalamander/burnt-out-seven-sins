@@ -9,6 +9,8 @@ var time_since_shot = 10
 
 var dead_enemy_scn
 
+var type = 0
+
 # does the instruction, then waits the time (in seconds)
 var instructions = []
 var instruction_time_left = 0
@@ -38,7 +40,7 @@ func _ready():
 func _physics_process(delta):
 	animation_frame += delta * 5
 	time_since_shot += delta
-	var frame = int(floor(animation_frame))%2
+	var frame = type*8+int(floor(animation_frame))%2
 	if time_since_shot < 0.3:
 		frame += 2
 	$Sprite.frame = frame
@@ -46,6 +48,7 @@ func _physics_process(delta):
 	if health <= 0:
 		var new_dead_enemy = dead_enemy_scn.instance()
 		new_dead_enemy.position = position
+		new_dead_enemy.type = type
 		get_parent().add_child(new_dead_enemy)
 		if rng.randf() < 0.5: #50% chance of an item
 			get_parent().spawn_item(position, true)
