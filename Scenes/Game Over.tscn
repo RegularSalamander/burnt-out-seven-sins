@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/ContinueButton.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MenuButton.gd" type="Script" id=2]
 [ext_resource path="res://fancySalamander (1).ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/gameover.gd" type="Script" id=4]
+[ext_resource path="res://Art/black.png" type="Texture" id=5]
+[ext_resource path="res://Art/game_over_animation.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxTexture" id=2]
 
@@ -14,6 +17,7 @@
 font_data = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = 166.009
@@ -56,3 +60,14 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 191, 85 )
+texture = ExtResource( 6 )
+hframes = 5
+vframes = 4
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 400.024, 225.122 )
+scale = Vector2( 400, 225 )
+texture = ExtResource( 5 )

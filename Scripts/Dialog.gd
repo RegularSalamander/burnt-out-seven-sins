@@ -54,11 +54,9 @@ func dialogNext():
 			TYPE_DICTIONARY:
 				match next["type"]:
 					"set-portrait":
-						var image = Image.new()
-						var err = image.load("res://" + next["res"])
-						var texture = ImageTexture.new()
-						texture.create_from_image(image, 0)
-						portraitNode.texture = texture
+						portraitNode.texture = load("res://" + next["res"])
+					"end":
+						get_parent().get_parent().get_parent().get_node("Player").health = 0
 	dialogClose()
 
 func start(file : String):

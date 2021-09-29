@@ -58,7 +58,7 @@ func generate(height):
 		var new_stairs = stair_scn.instance()
 		new_stairs.position.y = height
 		add_child(new_stairs)
-		if rng.randf() < 0.3: #30% chance of a spawned item
+		if rng.randf() < 0.3-0.1*Global.difficulty: #20% chance of a spawned item
 			get_parent().spawn_item(Vector2(rng.randf_range(-50, 50), rng.randf_range(-30, 30)+height), false)
 	if progress > 3 and progress%3 == 0:
 		#budget of enemy spawning is determined by level and difficulty

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Art/player.png" type="Texture" id=2]
 [ext_resource path="res://fancySalamander (1).ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Art/shadow.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2.45652, 5.20578 )
@@ -118,6 +119,15 @@ custom_fonts/normal_font = SubResource( 3 )
 text = "Pride"
 __meta__ = {
 "_edit_use_anchors_": false
+}
+
+[node name="Sprite2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.121569 )
+position = Vector2( 0, 12.538 )
+z_index = -1
+texture = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
 }
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
