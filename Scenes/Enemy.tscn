@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 14.575, 12.8169 )
+extents = Vector2( 7.50394, 8.02812 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5.80112, 11.1572 )
@@ -29,6 +29,7 @@ position = Vector2( -0.730553, 0.157035 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -0.530338, 0.883875 )
 shape = SubResource( 2 )
 
