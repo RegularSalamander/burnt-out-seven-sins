@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/DifficultyButton.gd" type="Script" id=1]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -14,10 +16,12 @@ margin_right = 269.113
 margin_bottom = 48.108
 rect_pivot_offset = Vector2( 122.631, 20 )
 text = "diff1"
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
+difficulty = 0
 
 [node name="Button2" type="Button" parent="."]
 margin_left = 111.654
@@ -26,6 +30,7 @@ margin_right = 288.654
 margin_bottom = 82.0431
 rect_pivot_offset = Vector2( 122.631, 20 )
 text = "diff2"
+script = ExtResource( 1 )
 
 [node name="Button3" type="Button" parent="."]
 margin_left = 120.189
@@ -34,9 +39,11 @@ margin_right = 297.189
 margin_bottom = 116.973
 rect_pivot_offset = Vector2( 122.631, 20 )
 text = "diff3"
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+difficulty = 2
 
 [node name="Button4" type="Button" parent="."]
 margin_left = 118.011
@@ -45,6 +52,8 @@ margin_right = 295.011
 margin_bottom = 155.676
 rect_pivot_offset = Vector2( 122.631, 20 )
 text = "diff4"
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+difficulty = 3
