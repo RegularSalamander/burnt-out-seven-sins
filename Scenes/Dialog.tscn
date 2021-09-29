@@ -19,14 +19,15 @@ __meta__ = {
 }
 initDialog = "res://Dialog/test.json"
 
-[node name="TextArea" type="TextureRect" parent="."]
-margin_left = 5.0
-margin_top = 430.0
-margin_right = 334.0
-margin_bottom = 494.0
+[node name="TextArea" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -128.0
+margin_top = 400.0
+margin_right = 128.0
+margin_bottom = 500.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
