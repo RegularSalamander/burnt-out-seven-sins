@@ -26,7 +26,7 @@ func _ready():
 	screen_border = $"Screen Border"
 	
 	var handle : File = File.new()
-	var _o = handle.open("enemies.json", File.READ)
+	var _o = handle.open("res://Scripts/enemies.json", File.READ)
 	var fileText = handle.get_as_text()
 	handle.close()
 	enemy_data = parse_json(fileText)

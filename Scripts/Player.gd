@@ -13,7 +13,7 @@ var input = [0, 0, 0, 0]
 var shooting = false
 # keeps track of the direction the player is facing
 # (isn't useful yet, but we'll need it when the player has actual animations)
-var lastDir = 0
+var last_dir = 0
 var reload_time = 0
 var sin_theta = 0
 
@@ -74,9 +74,16 @@ func _physics_process(delta):
 	
 	var velocity = Vector2(int(input[3])-int(input[2]), int(input[1])-int(input[0]))
 	
-	$Sprite.frame = int(floor(animation_frame))%2
+	if velocity.x > 0:
+		last_dir = 16
+	elif velocity.x < 0:
+		last_dir = 8
+	elif velocity:
+		last_dir = 0
+	
+	$Sprite.frame = int(floor(animation_frame))%4 + last_dir
 	if velocity:
-		$Sprite.frame += 2
+		$Sprite.frame += 4
 		
 	
 	if shooting and reload_time <= 0:

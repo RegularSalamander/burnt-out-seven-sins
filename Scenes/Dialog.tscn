@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Dialog.gd" type="Script" id=1]
 [ext_resource path="res://fancySalamander (1).ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Art/ui_textbox.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -31,19 +32,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="TextArea"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="DialogText" type="RichTextLabel" parent="TextArea"]
 anchor_left = 0.3
 anchor_top = 0.05
 anchor_right = 0.95
 anchor_bottom = 0.95
+margin_left = -246.762
+margin_top = -428.985
+margin_right = -157.162
+margin_bottom = -472.985
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "Text is [color=red]good[/color], REALLY [color=red]GOOD[/color], it's amazing it's just the best"
@@ -55,6 +52,10 @@ __meta__ = {
 [node name="Label" type="Label" parent="TextArea"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -70.5556
+margin_top = 116.543
+margin_right = -70.5556
+margin_bottom = 116.543
 custom_fonts/font = SubResource( 2 )
 text = "Enter"
 align = 2
@@ -64,10 +65,14 @@ __meta__ = {
 }
 
 [node name="PortraitPicture" type="TextureRect" parent="TextArea"]
-anchor_left = 0.05
-anchor_top = 0.05
-anchor_right = 0.25
-anchor_bottom = 0.95
+anchor_left = 0.031
+anchor_top = 0.25
+anchor_right = 0.223
+anchor_bottom = 0.73
+margin_left = -238.564
+margin_top = -448.795
+margin_right = -238.716
+margin_bottom = -448.795
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -76,3 +81,7 @@ __meta__ = {
 
 [node name="TalkingSound" type="AudioStreamPlayer" parent="."]
 volume_db = -3.0
+
+[node name="ui_textbox" type="Sprite" parent="."]
+z_index = -1
+texture = ExtResource( 3 )

@@ -1,8 +1,8 @@
 {
     "start": [
-        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        {"type":"set-portrait", "res":"Art/portrait_1.png"},
         "*yawn*, u rly need that many bullets?",
-        {"type":"set-portrait", "res":"Art/smiley.tres"},
+        {"type":"set-portrait", "res":"Art/portrait_0.png"},
         "u better clutch up and hit ur shots ;P"
     ]
 }

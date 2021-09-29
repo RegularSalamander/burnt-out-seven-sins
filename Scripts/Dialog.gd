@@ -26,6 +26,7 @@ func _ready():
 
 func dialogClose():
 	# Engine.time_scale = 1
+	soundNode.stop()
 	get_parent().get_parent().get_parent().get_node("Player").can_move = true
 	visible = false
 	dialogActive = false
@@ -53,7 +54,10 @@ func dialogNext():
 			TYPE_DICTIONARY:
 				match next["type"]:
 					"set-portrait":
-						var texture = load("res://" + next["res"])
+						var image = Image.new()
+						var err = image.load("res://" + next["res"])
+						var texture = ImageTexture.new()
+						texture.create_from_image(image, 0)
 						portraitNode.texture = texture
 	dialogClose()
 
