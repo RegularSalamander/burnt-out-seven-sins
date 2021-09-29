@@ -74,7 +74,6 @@ func generate(height):
 				var new_enemy = enemy_scn.instance() #todo: make random and determined by difficulty
 				new_enemy.type = rng.randi_range(0, 1)
 				new_enemy.load_enemy(enemy_idx)
-				new_enemy.type = rng.randi_range(0, 1)
 				new_enemy.position.y = height + rng.randf_range(-20.0, 20.0)
 				get_parent().add_child(new_enemy)
 				budget -= enemy_data["enemies"][enemy_idx]["difficulty"]

@@ -11,8 +11,6 @@ var time_since_shot = 10
 
 var dead_enemy_scn
 
-var type = 0
-
 # does the instruction, then waits the time (in seconds)
 var instructions = []
 var instruction_time_left = 0
