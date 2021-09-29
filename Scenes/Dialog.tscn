@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Dialog.gd" type="Script" id=1]
 [ext_resource path="res://fancySalamander (1).ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Art/Dialogue_Box.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -18,20 +19,20 @@ __meta__ = {
 }
 initDialog = "res://Dialog/test.json"
 
-[node name="TextArea" type="Control" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -128.0
-margin_top = 400.0
-margin_right = 128.0
-margin_bottom = 500.0
+[node name="TextArea" type="TextureRect" parent="."]
+margin_left = 5.0
+margin_top = 430.0
+margin_right = 334.0
+margin_bottom = 494.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="TextArea"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
@@ -40,10 +41,10 @@ __meta__ = {
 }
 
 [node name="DialogText" type="RichTextLabel" parent="TextArea"]
-anchor_left = 0.3
-anchor_top = 0.05
-anchor_right = 0.95
-anchor_bottom = 0.95
+anchor_left = 0.2
+anchor_top = 0.15
+anchor_right = 0.98
+anchor_bottom = 0.85
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "Text is [color=red]good[/color], REALLY [color=red]GOOD[/color], it's amazing it's just the best"
@@ -53,8 +54,8 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="TextArea"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.98
+anchor_bottom = 0.9
 custom_fonts/font = SubResource( 2 )
 text = "Enter"
 align = 2
@@ -64,10 +65,10 @@ __meta__ = {
 }
 
 [node name="PortraitPicture" type="TextureRect" parent="TextArea"]
-anchor_left = 0.05
-anchor_top = 0.05
-anchor_right = 0.25
-anchor_bottom = 0.95
+anchor_left = 0.025
+anchor_top = 0.15
+anchor_right = 0.16
+anchor_bottom = 0.85
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -75,4 +76,4 @@ __meta__ = {
 }
 
 [node name="TalkingSound" type="AudioStreamPlayer" parent="."]
-volume_db = -3.0
+volume_db = -13.0
