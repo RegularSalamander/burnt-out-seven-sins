@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Dead Enemy.gd" type="Script" id=1]
-[ext_resource path="res://Art/enemy_death.png" type="Texture" id=2]
+[ext_resource path="res://Art/enemy.png" type="Texture" id=2]
 
 [node name="Dead Enemy" type="Sprite"]
 texture = ExtResource( 2 )
 hframes = 4
+vframes = 6
 script = ExtResource( 1 )
