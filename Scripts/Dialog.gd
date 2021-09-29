@@ -46,7 +46,7 @@ func dialogNext():
 					textNode.text = ""
 					text = next
 					textTime = textPeriod
-					soundNode.stream = load("res://Sounds/sawtooth.wav")
+					#soundNode.stream = load("res://Sounds/sawtooth.wav")
 					soundNode.play()
 				return null
 			TYPE_ARRAY:

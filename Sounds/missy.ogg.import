@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/missy.ogg-1b40092db1668523f947730a0231b769.oggstr"
+
+[deps]
+
+source_file="res://Sounds/missy.ogg"
+dest_files=[ "res://.import/missy.ogg-1b40092db1668523f947730a0231b769.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
