@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/DifficultyButton.gd" type="Script" id=1]
+[ext_resource path="res://Art/menuart.png" type="Texture" id=2]
+[ext_resource path="res://fancySalamander (1).ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="StyleBoxTexture" id=2]
+
+[sub_resource type="StyleBoxTexture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -10,12 +21,20 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 92.1135
-margin_top = 28.108
-margin_right = 269.113
-margin_bottom = 48.108
+margin_left = 16.0
+margin_top = 61.0
+margin_right = 69.0
+margin_bottom = 75.0
 rect_pivot_offset = Vector2( 122.631, 20 )
-text = "diff1"
+focus_mode = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 1, 0.462745, 1 )
+enabled_focus_mode = 0
+text = "Saint Mode"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false,
@@ -24,36 +43,83 @@ __meta__ = {
 difficulty = 0
 
 [node name="Button2" type="Button" parent="."]
-margin_left = 111.654
-margin_top = 62.0431
-margin_right = 288.654
-margin_bottom = 82.0431
+margin_left = 16.0
+margin_top = 82.357
+margin_right = 77.0
+margin_bottom = 96.357
 rect_pivot_offset = Vector2( 122.631, 20 )
-text = "diff2"
-script = ExtResource( 1 )
-
-[node name="Button3" type="Button" parent="."]
-margin_left = 120.189
-margin_top = 96.9731
-margin_right = 297.189
-margin_bottom = 116.973
-rect_pivot_offset = Vector2( 122.631, 20 )
-text = "diff3"
+focus_mode = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 1, 0.462745, 1 )
+enabled_focus_mode = 0
+text = "Normal Mode"
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 106.051
+margin_right = 76.0
+margin_bottom = 120.051
+rect_pivot_offset = Vector2( 122.631, 20 )
+focus_mode = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 1, 0.462745, 1 )
+enabled_focus_mode = 0
+text = "Sinner Mode"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
 }
 difficulty = 2
 
 [node name="Button4" type="Button" parent="."]
-margin_left = 118.011
-margin_top = 135.676
-margin_right = 295.011
-margin_bottom = 155.676
+margin_left = 16.0
+margin_top = 126.407
+margin_right = 63.0
+margin_bottom = 140.407
 rect_pivot_offset = Vector2( 122.631, 20 )
-text = "diff4"
+focus_mode = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 1, 0.462745, 1 )
+enabled_focus_mode = 0
+text = "Hell Mode"
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_editor_description_": ""
 }
 difficulty = 3
+
+[node name="Sprite" type="Sprite" parent="."]
+z_index = -1
+texture = ExtResource( 2 )
+centered = false
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureButton2"]
+margin_right = 40.0
+margin_bottom = 40.0

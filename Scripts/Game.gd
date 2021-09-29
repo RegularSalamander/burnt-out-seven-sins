@@ -49,7 +49,7 @@ func _process(delta):
 	else:
 		fade += 0.01
 		if fade >= 1:
-			get_tree().change_scene("res://Scenes/Game.tscn")
+			get_tree().change_scene("res://Scenes/Game Over.tscn")
 	$CanvasLayer/Fadeout.modulate.a = fade
 	
 	$CanvasLayer/progress.visible = world_gen.player_level >= 0

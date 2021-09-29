@@ -4,9 +4,10 @@
         "no way u actually believed me right?",
         {"type":"set-portrait", "res":"Art/portrait_1.png"},
         "they don't let sinners into heaven",
-        {"type":"set-portrait", "res":"Art/portrait_1.png"},
-        "and they definitely don't let people come back to life.",
         {"type":"set-portrait", "res":"Art/portrait_0.png"},
-        "lmao"
+        "and they definitely don't let people come back to life.",
+        {"type":"set-portrait", "res":"Art/portrait_1.png"},
+        "memento mori, loser!",
+        {"type": "end", "res":"nothing lol"}
     ]
 }

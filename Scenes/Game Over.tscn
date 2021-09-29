@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/ContinueButton.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/MenuButton.gd" type="Script" id=2]
+[ext_resource path="res://fancySalamander (1).ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="StyleBoxTexture" id=2]
+
+[sub_resource type="StyleBoxTexture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 166.009
+margin_top = 122.909
+margin_right = 219.009
+margin_bottom = 142.909
+rect_pivot_offset = Vector2( 122.631, 20 )
+focus_mode = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 1, 0.462745, 1 )
+enabled_focus_mode = 0
+text = "Continue?"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 166.406
+margin_top = 143.942
+margin_right = 219.406
+margin_bottom = 163.942
+rect_pivot_offset = Vector2( 122.631, 20 )
+focus_mode = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 1, 0.462745, 1 )
+enabled_focus_mode = 0
+text = "Give up"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
