@@ -1,17 +1,25 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/DifficultyButton.gd" type="Script" id=1]
 [ext_resource path="res://Art/menuart.png" type="Texture" id=2]
 [ext_resource path="res://fancySalamander (1).ttf" type="DynamicFontData" id=3]
 
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 3 )
+
 [sub_resource type="StyleBoxTexture" id=1]
 
 [sub_resource type="StyleBoxTexture" id=2]
 
+[sub_resource type="StyleBoxEmpty" id=8]
+
 [sub_resource type="StyleBoxTexture" id=3]
 
-[sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 3 )
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
 
 [sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 3 )
@@ -36,20 +44,19 @@ margin_top = 60.0
 margin_right = 67.0
 margin_bottom = 74.0
 rect_pivot_offset = Vector2( 122.631, 20 )
-focus_neighbour_top = NodePath("../Button4")
+focus_neighbour_top = NodePath("../Button5")
 focus_neighbour_bottom = NodePath("../Button2")
-focus_mode = 0
+custom_colors/font_color_focus = Color( 1, 0.85098, 0.0431373, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.85098, 0.0431373, 1 )
+custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 8 )
 custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.992157, 1, 0.462745, 1 )
-enabled_focus_mode = 0
 text = "Saint Mode"
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 difficulty = 0
@@ -62,14 +69,14 @@ margin_bottom = 96.0
 rect_pivot_offset = Vector2( 122.631, 20 )
 focus_neighbour_top = NodePath("../Button")
 focus_neighbour_bottom = NodePath("../Button3")
-focus_mode = 0
+custom_colors/font_color_focus = Color( 1, 0.85098, 0.0431373, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.85098, 0.0431373, 1 )
+custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 9 )
 custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.992157, 1, 0.462745, 1 )
-enabled_focus_mode = 0
 text = "Normal Mode"
 script = ExtResource( 1 )
 __meta__ = {
@@ -85,14 +92,14 @@ margin_bottom = 118.0
 rect_pivot_offset = Vector2( 122.631, 20 )
 focus_neighbour_top = NodePath("../Button2")
 focus_neighbour_bottom = NodePath("../Button4")
-focus_mode = 0
+custom_colors/font_color_focus = Color( 1, 0.85098, 0.0431373, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.85098, 0.0431373, 1 )
+custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 10 )
 custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.992157, 1, 0.462745, 1 )
-enabled_focus_mode = 0
 text = "Sinner Mode"
 script = ExtResource( 1 )
 __meta__ = {
@@ -106,24 +113,46 @@ margin_left = 16.0
 margin_top = 126.0
 margin_right = 63.0
 margin_bottom = 140.0
-rect_pivot_offset = Vector2( 122.631, 20 )
+rect_pivot_offset = Vector2( 23.5, 7 )
 focus_neighbour_top = NodePath("../Button3")
-focus_neighbour_bottom = NodePath("../Button")
-focus_mode = 0
+focus_neighbour_bottom = NodePath("../Button5")
+custom_colors/font_color_focus = Color( 1, 0.85098, 0.0431373, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.85098, 0.0431373, 1 )
+custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 11 )
 custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.992157, 1, 0.462745, 1 )
-enabled_focus_mode = 0
 text = "Hell Mode"
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 difficulty = 3
+
+[node name="Button5" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 148.0
+margin_right = 34.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 23.5, 7 )
+focus_neighbour_top = NodePath("../Button4")
+focus_neighbour_bottom = NodePath("../Button")
+custom_colors/font_color_focus = Color( 1, 0.85098, 0.0431373, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.85098, 0.0431373, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/normal = SubResource( 3 )
+text = "Exit"
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+difficulty = -1
 
 [node name="Sprite" type="Sprite" parent="."]
 z_index = -1

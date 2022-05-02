@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/ContinueButton.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MenuButton.gd" type="Script" id=2]
@@ -7,14 +7,18 @@
 [ext_resource path="res://Art/black.png" type="Texture" id=5]
 [ext_resource path="res://Art/game_over_animation.png" type="Texture" id=6]
 
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
 [sub_resource type="StyleBoxTexture" id=2]
 
 [sub_resource type="StyleBoxTexture" id=3]
 
+[sub_resource type="StyleBoxEmpty" id=5]
+
 [sub_resource type="StyleBoxTexture" id=4]
 
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 3 )
+[sub_resource type="StyleBoxEmpty" id=6]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
@@ -25,18 +29,19 @@ margin_top = 122.909
 margin_right = 219.009
 margin_bottom = 142.909
 rect_pivot_offset = Vector2( 122.631, 20 )
-focus_mode = 0
+focus_neighbour_top = NodePath("../Button2")
+focus_neighbour_bottom = NodePath("../Button2")
+custom_colors/font_color_focus = Color( 1, 0.85098, 0.0431373, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.85098, 0.0431373, 1 )
+custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 5 )
 custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.992157, 1, 0.462745, 1 )
-enabled_focus_mode = 0
 text = "Continue?"
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 
@@ -46,14 +51,16 @@ margin_top = 143.942
 margin_right = 219.406
 margin_bottom = 163.942
 rect_pivot_offset = Vector2( 122.631, 20 )
-focus_mode = 0
+focus_neighbour_top = NodePath("../Button")
+focus_neighbour_bottom = NodePath("../Button")
+custom_colors/font_color_focus = Color( 1, 0.85098, 0.0431373, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.85098, 0.0431373, 1 )
+custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 6 )
 custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.992157, 1, 0.462745, 1 )
-enabled_focus_mode = 0
 text = "Give up"
 script = ExtResource( 2 )
 __meta__ = {
@@ -68,6 +75,7 @@ hframes = 5
 vframes = 4
 
 [node name="Sprite2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 400.024, 225.122 )
 scale = Vector2( 400, 225 )
 texture = ExtResource( 5 )
